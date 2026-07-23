@@ -1,0 +1,22 @@
+:root {
+  /* Colors */
+  --white: #fff;
+  --text-primary: #222;
+  --text-secondary: #666;
+  --border-color: #ececec;
+  --primary-color: #3b82c4;
+
+  /* Spacing */
+  --spacing-xxs: 0.5rem;
+  --spacing-xs: 0.8rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+
+  /* Border radius */
+  --border-radius: 0.5rem;
+
+  /* Shadows */
+  --shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  --shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.15);
+}

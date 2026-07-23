@@ -1,0 +1,71 @@
+.link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  padding: 2.8rem 0.5rem 0.75rem;
+  background-color: var(--white);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.image {
+  position: absolute;
+  top: -2.5rem;
+  left: 50%;
+  width: 5.5rem;
+  aspect-ratio: 1;
+  border: 0.1875rem solid var(--white);
+  border-radius: 50%;
+  object-fit: cover;
+  transform: translateX(-50%);
+}
+
+.content {
+  width: 100%;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.title {
+  margin: 0;
+  color: var(--text-primary);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.author {
+  margin-top: var(--spacing-xs);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+@media (max-width: 48rem) {
+  .card {
+    padding: 3.5rem var(--spacing-sm) var(--spacing-sm);
+  }
+
+  .image {
+    width: 4.5rem;
+    top: -2.25rem;
+  }
+
+  .title {
+    font-size: 0.8125rem;
+  }
+
+  .author {
+    font-size: 0.75rem;
+  }
+}

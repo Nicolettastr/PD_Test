@@ -1,0 +1,33 @@
+.home {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 70px 24px;
+  margin-top: 40px;
+  list-style: none;
+  padding: 0;
+}
+
+.searchbar {
+  width: 95%;
+  display: flex;
+  justify-content: end;
+  margin: 2rem 0 1rem 0;
+  align-items: center;
+  gap: 1rem;
+}
+
+.counter {
+  width: max-content;
+  background-color: var(--primary-color);
+  padding: 0.2rem 0.5rem;
+  height: max-content;
+  border-radius: var(--border-radius);
+  color: var(--white);
+  font-weight: 700;
+}

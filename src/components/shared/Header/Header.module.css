@@ -1,0 +1,11 @@
+.header {
+  padding: var(--spacing-xs);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.logo {
+  color: var(--primary-color);
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
