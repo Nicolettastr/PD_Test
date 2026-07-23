@@ -3,7 +3,7 @@ import axiosClient from "../../../lib/axios";
 import { PODCAST_API } from "../constants/podcastApi";
 import type { PodcastDetailResponseDTO } from "../dto/podcastDetail.dto";
 
-export const getTopPodcasts = async (podcastId: string) => {
+export const getPodcastDetail = async (podcastId: string) => {
   const { data } = await axiosClient.get<PodcastDetailResponseDTO>(
     PODCAST_API.PODCAST_DETAIL,
     {
