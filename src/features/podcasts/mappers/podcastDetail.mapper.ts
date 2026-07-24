@@ -1,10 +1,25 @@
-import type { PodcastInfoDTO } from "../dto/podcastDetail.dto";
+import type {
+  PodcastDetailResponseDTO,
+  PodcastInfoDTO,
+} from "../dto/podcastDetail.dto";
 import type { PodcastDetail } from "../model/podcastDetail.model";
 
-export const mapPodcastDetail = (dto: PodcastInfoDTO): PodcastDetail => ({
-  id: dto.collectionId.toString(),
-  title: dto.collectionName,
-  author: dto.artistName,
-  image: dto.artworkUrl600 || dto.artworkUrl100,
-  description: "",
-});
+export const mapPodcastDetail = (
+  dto: PodcastDetailResponseDTO,
+): PodcastDetail => {
+  const podcast = dto.results.find(
+    (item): item is PodcastInfoDTO => "collectionId" in item,
+  );
+
+  if (!podcast) {
+    throw new Error("Podcast not found");
+  }
+
+  return {
+    id: podcast.collectionId.toString(),
+    title: podcast.collectionName,
+    author: podcast.artistName,
+    image: podcast.artworkUrl600 || podcast.artworkUrl100,
+    description: "",
+  };
+};
