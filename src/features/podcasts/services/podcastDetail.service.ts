@@ -4,13 +4,15 @@ import axiosClient from "../../../lib/axios";
 import { getCachedData, setCachedData } from "../../../lib/cache";
 import { PODCAST_API } from "../constants/podcastApi";
 import type { PodcastDetailResponseDTO } from "../dto/podcastDetail.dto";
-import { mapPodcastDetail } from "../mappers/podcastDetail.mapper";
-import type { PodcastDetail } from "../model/podcastDetail.model";
+import { mapPodcastDetailResponse } from "../mappers/podcastDetailsResponse.mapper";
+import type { PodcastDetailData } from "../model/podcastDetailData.model";
 
-export const getPodcastDetail = async (podcastId: string) => {
+export const getPodcastDetail = async (podcastId: string | undefined) => {
+  if (!podcastId) return;
+
   const cacheKey = CACHE_KEYS.PODCAST_DETAIL(podcastId);
 
-  const cachedData = getCachedData<PodcastDetail>(cacheKey);
+  const cachedData = getCachedData<PodcastDetailData>(cacheKey);
 
   if (cachedData) {
     return cachedData;
@@ -26,7 +28,7 @@ export const getPodcastDetail = async (podcastId: string) => {
     },
   );
 
-  const podcastDetail = mapPodcastDetail(data);
+  const podcastDetail = mapPodcastDetailResponse(data);
 
   setCachedData(cacheKey, podcastDetail);
 

@@ -8,7 +8,7 @@ export const mapPodcastDetail = (
   dto: PodcastDetailResponseDTO,
 ): PodcastDetail => {
   const podcast = dto.results.find(
-    (item): item is PodcastInfoDTO => "collectionId" in item,
+    (item): item is PodcastInfoDTO => item.kind === "podcast",
   );
 
   if (!podcast) {
@@ -20,6 +20,10 @@ export const mapPodcastDetail = (
     title: podcast.collectionName,
     author: podcast.artistName,
     image: podcast.artworkUrl600 || podcast.artworkUrl100,
-    description: "",
+    description: `${podcast.collectionName} is a podcast by ${
+      podcast.artistName
+    } focused on ${podcast.primaryGenreName.toLowerCase()}, featuring ${
+      podcast.trackCount
+    } episodes.`,
   };
 };

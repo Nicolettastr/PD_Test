@@ -3,6 +3,6 @@ export interface Episode {
   title: string;
   description: string;
   releaseDate: string;
-  duration: number;
+  duration?: number;
   audioUrl: string;
 }

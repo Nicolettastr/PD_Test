@@ -1,7 +1,10 @@
-import type { EpisodeDTO } from "../dto/podcastDetail.dto";
+import type {
+  EpisodeDTO,
+  PodcastDetailResponseDTO,
+} from "../dto/podcastDetail.dto";
 import type { Episode } from "../model/episode.model";
 
-export const mapEpisode = (dto: EpisodeDTO): Episode => ({
+const mapEpisode = (dto: EpisodeDTO): Episode => ({
   id: dto.trackId.toString(),
   title: dto.trackName,
   description: dto.description,
@@ -10,5 +13,10 @@ export const mapEpisode = (dto: EpisodeDTO): Episode => ({
   audioUrl: dto.episodeUrl,
 });
 
-export const mapEpisodes = (episodes: EpisodeDTO[]): Episode[] =>
-  episodes.map(mapEpisode);
+export const mapEpisodes = (dto: PodcastDetailResponseDTO): Episode[] => {
+  const episodes = dto.results.filter(
+    (item): item is EpisodeDTO => item.kind === "podcast-episode",
+  );
+
+  return episodes.map(mapEpisode);
+};

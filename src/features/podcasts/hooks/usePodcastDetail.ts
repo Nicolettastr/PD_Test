@@ -1,13 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
-import { mapPodcastDetailResponse } from "../mappers/podcastDetailsResponse.mapper";
 import { getPodcastDetail } from "../services/podcastDetail.service";
 
-export const usePodcastDetail = (podcastId: string) => {
+export const usePodcastDetail = (podcastId: string | undefined) => {
   return useQuery({
     queryKey: ["podcast-detail", podcastId],
-    queryFn: async () => {
-      const data = await getPodcastDetail(podcastId);
-      return mapPodcastDetailResponse(data);
-    },
+    queryFn: () => getPodcastDetail(podcastId),
+    enabled: !!podcastId,
   });
 };

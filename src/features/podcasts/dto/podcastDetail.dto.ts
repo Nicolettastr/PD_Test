@@ -8,6 +8,9 @@ export interface PodcastInfoDTO {
   artistName: string;
   artworkUrl600: string;
   artworkUrl100: string;
+  primaryGenreName: string;
+  trackCount: number;
+  kind: string;
 }
 
 export interface EpisodeDTO {
@@ -17,4 +20,5 @@ export interface EpisodeDTO {
   trackTimeMillis: number;
   description: string;
   episodeUrl: string;
+  kind: string;
 }
