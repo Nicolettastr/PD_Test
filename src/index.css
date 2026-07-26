@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700;800&display=swap");
+
 :root {
   /* Colors */
   --white: #fff;
@@ -19,4 +21,8 @@
   /* Shadows */
   --shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
   --shadow-hover: 0 8px 18px rgba(0, 0, 0, 0.15);
+}
+
+body {
+  font-family: "Nunito", sans-serif;
 }

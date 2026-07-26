@@ -1,76 +1,108 @@
-# React + TypeScript + Vite
+# Podcaster
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A podcast application built with React and TypeScript that allows users to browse podcasts, view podcast details, and listen to episodes.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Browse podcast list
+- Search podcasts by title or author
 
-## React Compiler
+![Home](./src/docs/images/home.png)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- View podcast details and episode list
 
-## Expanding the ESLint configuration
+![Podcast Detail](./src/docs/images/pd-detail.png)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- View episode details
+- Audio player for podcast episodes
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+![Episode Detail](./src/docs/images/ep-detail.png)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- Client-side navigation loading indicator
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- API response caching with React Query
 
+## Tech Stack
+
+- React
+- TypeScript
+- React Router
+- TanStack React Query
+- CSS Modules
+- Vite
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/Nicolettastr/PD_Test
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Install dependencies:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
 ```
-# PD_Test
+
+Start the development server:
+
+```bash
+npm run dev
+```
+
+Build the project:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+## Project Structure
+
+```text
+src/
+├── components/
+├── features/
+├── hooks/
+├── layouts/
+├── pages/
+├── router/
+├── services/
+├── types/
+└── utils/
+```
+
+## Architecture
+
+The application follows a feature-based architecture:
+
+- **features** contains domain-specific logic.
+- **components** contains shared reusable components.
+- **services** handles API communication.
+- **hooks** encapsulate reusable logic.
+- **mappers** transform API responses into application models.
+- **React Query** manages server state and caching.
+
+## Performance
+
+- API responses cached with React Query.
+- Search filtering performed client-side.
+- Memoized transformations where appropriate.
+
+## Technical Decisions
+
+- React Query was used for data fetching and caching.
+- DTOs and mappers were implemented to decouple API responses from the UI.
+- CSS Modules were chosen for component-level styling.
+- Custom hooks encapsulate reusable business logic.
+- Feature-based folder structure improves scalability and maintainability.
+
+## License
+
+This project was developed as a technical assessment.
