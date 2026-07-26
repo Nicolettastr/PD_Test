@@ -7,16 +7,16 @@ A podcast application built with React and TypeScript that allows users to brows
 - Browse podcast list
 - Search podcasts by title or author
 
-![Home](./src/docs/images/home.png)
+![Home](./docs/images/home.png)
 
 - View podcast details and episode list
 
-![Podcast Detail](./src/docs/images/pd-detail.png)
+![Podcast Detail](./docs/images/pd-detail.png)
 
 - View episode details
 - Audio player for podcast episodes
 
-![Episode Detail](./src/docs/images/ep-detail.png)
+![Episode Detail](./docs/images/ep-detail.png)
 
 - Client-side navigation loading indicator
 
