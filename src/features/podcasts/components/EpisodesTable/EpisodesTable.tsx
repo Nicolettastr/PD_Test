@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
+import type { NavigationContext } from "../../../../layouts/MainLayout";
 import { formatDate } from "../../../../utils/formatDate";
 import { formatDuration } from "../../../../utils/formatDuration";
 import type { Episode } from "../../model/episode.model";
@@ -13,11 +14,13 @@ export const EpisodesTable: React.FC<EpisodesTableProps> = ({
   episodes,
   podcastId,
 }) => {
+  const { startNavigation } = useOutletContext<NavigationContext>();
   const episodesData = episodes?.map((episode) => (
     <tr key={episode.id}>
       <td>
         <Link
           to={`/podcast/${podcastId}/episode/${episode.id}`}
+          onClick={startNavigation}
           className={styles.title}
         >
           {episode.title}

@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, useOutletContext } from "react-router-dom";
+import type { NavigationContext } from "../../../../layouts/MainLayout";
 import type { PodcastDetail } from "../../model/podcastDetail.model";
 import styles from "./PodcastInfo.module.css";
 
@@ -7,16 +8,22 @@ interface PodcastInfoProps {
 }
 
 export const PodcastInfo: React.FC<PodcastInfoProps> = ({ podcast }) => {
+  const { startNavigation } = useOutletContext<NavigationContext>();
+
   if (!podcast) return <p>Something went wrong...</p>;
 
   return (
     <div className={styles.container}>
-      <Link to={`/podcast/${podcast.id}`}>
+      <Link onClick={startNavigation} to={`/podcast/${podcast.id}`}>
         <img src={podcast.image} alt={podcast.title} className={styles.image} />
       </Link>
       <hr className={styles.divider} />
 
-      <Link to={`/podcast/${podcast.id}`} className={styles.info}>
+      <Link
+        onClick={startNavigation}
+        to={`/podcast/${podcast.id}`}
+        className={styles.info}
+      >
         <h2 className={styles.title}>{podcast.title}</h2>
         <p className={styles.author}>by {podcast.author}</p>
       </Link>

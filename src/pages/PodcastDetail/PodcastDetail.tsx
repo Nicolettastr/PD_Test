@@ -4,12 +4,15 @@ import { EpisodesTotal } from "../../features/podcasts/components/EpisodesTotal/
 import { PodcastInfo } from "../../features/podcasts/components/PodcastInfo/PodcastInfo";
 import { usePodcastDetail } from "../../features/podcasts/hooks/usePodcastDetail";
 
+import { useStopNavigation } from "../../hooks/useStopNavigation";
 import styles from "./PodcastDetail.module.css";
 
 export const PodcastDetail = () => {
   const { podcastId } = useParams();
 
   const { data, isLoading, isError } = usePodcastDetail(podcastId);
+
+  useStopNavigation(isLoading);
 
   if (isLoading) return <p>...Loading</p>;
   if (isError) return <p>Something went wrong</p>;
