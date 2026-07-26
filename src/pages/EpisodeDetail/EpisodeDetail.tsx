@@ -1,4 +1,6 @@
 import { useParams } from "react-router-dom";
+import { Error } from "../../components/shared/Error/Error";
+import { Loader } from "../../components/shared/Loader/Loader";
 import { EpisodeCard } from "../../features/podcasts/components/EpisodeCard/EpisodeCard";
 import { PodcastInfo } from "../../features/podcasts/components/PodcastInfo/PodcastInfo";
 import { usePodcastDetail } from "../../features/podcasts/hooks/usePodcastDetail";
@@ -14,8 +16,16 @@ export const EpisodeDetail = () => {
 
   useStopNavigation(isLoading);
 
-  if (isLoading) return <p>...Loading</p>;
-  if (isError) return <p>Something went wrong</p>;
+  if (isLoading) return <Loader message="Loading podcast episode..." />;
+
+  if (isError) {
+    return (
+      <Error
+        title="Unable to load podcast episode"
+        message="Please try again later."
+      />
+    );
+  }
 
   return (
     <div className={styles.container}>

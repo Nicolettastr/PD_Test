@@ -1,4 +1,6 @@
 import { useMemo, useState } from "react";
+import { Error } from "../../components/shared/Error/Error";
+import { Loader } from "../../components/shared/Loader/Loader";
 import { Searchbar } from "../../components/shared/Searchbar";
 import { PodcastCard } from "../../features/podcasts/components/PodcastCard/PodcastCard";
 import { useTopPodcasts } from "../../features/podcasts/hooks/useTopPodcasts";
@@ -26,8 +28,16 @@ export const Home = () => {
     </li>
   ));
 
-  if (isLoading) return <p>...Loading</p>;
-  if (isError) return <p>Something went wrong</p>;
+  if (isLoading) return <Loader message="Loading podcast..." />;
+
+  if (isError) {
+    return (
+      <Error
+        title="Unable to load podcasts"
+        message="Please try again later."
+      />
+    );
+  }
 
   return (
     <main>
