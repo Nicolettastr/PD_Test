@@ -31,37 +31,36 @@ A podcast application built with React and TypeScript that allows users to brows
 - CSS Modules
 - Vite
 
-## Installation
+## Running the Application
 
-Clone the repository:
+### Clone the repository
 
 ```bash
 git clone https://github.com/Nicolettastr/PD_Test
-```
-
-Install dependencies:
-
-```bash
+cd PD_Test
 npm install
 ```
 
-Start the development server:
+### Development
+
+Run the application in development mode:
 
 ```bash
 npm run dev
 ```
 
-Build the project:
+Vite serves the application with unminified assets and Hot Module Replacement (HMR).
+
+### Production
+
+Build and preview the optimized production bundle:
 
 ```bash
 npm run build
-```
-
-Preview the production build:
-
-```bash
 npm run preview
 ```
+
+Vite generates a minified production build with optimized assets.
 
 ## Project Structure
 
@@ -91,9 +90,9 @@ The application follows a feature-based architecture:
 
 ## Performance
 
-- API responses cached with React Query.
-- Search filtering performed client-side.
-- Memoized transformations where appropriate.
+- Podcast list and podcast details are cached for 24 hours using React Query.
+- Client-side search filtering provides instant results while typing.
+- DTOs and mappers transform API responses into application models.
 
 ## Technical Decisions
 
